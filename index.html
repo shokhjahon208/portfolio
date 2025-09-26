@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Cursor</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div class="halo"></div>
+    <div class="cursor-dot"></div>
+    <div class="container">
+        <header>
+            <ul class="header">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </header>
+    </div>
+<script>
+    const halo = document.querySelector('.halo');
+    const dot = document.querySelector('.cursor-dot');
+
+    let mouseX = 0, mouseY = 0;  
+    let haloX = 0, haloY = 0;    
+
+    document.addEventListener("mousemove", (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+
+    dot.style.left = mouseX + "px";
+    dot.style.top = mouseY + "px";
+
+    halo.style.opacity = "1";
+    dot.style.opacity = "1";   // nuqta ham ko‘rinadi
+    });
+
+    document.addEventListener("mouseleave", () => {
+    halo.style.opacity = "0";
+    dot.style.opacity = "0";   // sichqoncha chiqib ketganda yo‘qoladi
+    });
+
+    // sekin harakat
+    function animate() {
+    haloX += (mouseX - haloX) * 0.1; 
+    haloY += (mouseY - haloY) * 0.1;
+
+    halo.style.left = haloX + "px";
+    halo.style.top = haloY + "px";
+
+    requestAnimationFrame(animate);
+}
+    animate();
+
+    // bosilganda effekt
+    document.addEventListener('click', e => {
+    const ripple = document.createElement("span");
+    ripple.classList.add("click-effect");
+    ripple.style.left = e.clientX + "px";
+    ripple.style.top = e.clientY + "px";
+    document.body.appendChild(ripple);
+
+        ripple.addEventListener("animationend", () => {
+            ripple.remove();
+        });
+    });
+</script>
+</body>
+</html>

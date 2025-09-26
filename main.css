@@ -1,0 +1,107 @@
+* {
+    margin: 0;
+    padding: 0;
+    /* box-sizing: border-box; */
+    list-style: none;
+}
+body {
+    height: 100vh;
+    background-color: #08233B;
+    background-image: radial-gradient(circle at center, #ffffff34 1px, transparent 1px);
+    background-size: 30px 30px;
+    cursor: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    color: white;
+}
+
+/* kichik nuqta */
+.cursor-dot {
+    position: fixed;
+    width: 6px;
+    height: 6px;
+    background: white;
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 10000;
+}
+
+/* halqa */
+.halo {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    opacity: 0;
+    z-index: 9999;
+    backdrop-filter: blur(2px);
+}
+
+/* klik animatsiyasi */
+.click-effect {
+    position: fixed;
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  pointer-events: none;
+    transform: translate(-50%, -50%);
+    animation: ripple 0.8s ease-out forwards;
+    z-index: 9999;
+}
+
+@keyframes ripple {
+    from {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(3);
+    }
+}
+.container {
+    max-width: 1200px ;
+    padding: 10px;
+    
+}
+header {
+    width: 100%;
+    height: 550px;
+    justify-content: space-between;
+    /* position: fixed; */
+}
+header ul.header {
+    margin-left: -600px;
+    margin-bottom: 500px;
+    position: fixed;
+    width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    opacity: 0.5;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    padding: 5px;
+}
+header ul.header li {
+    width: 120px;
+    height: 40px;
+    margin: 15px;
+    background-color: rgb(0, 0, 0);
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
